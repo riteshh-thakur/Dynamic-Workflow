@@ -1,7 +1,7 @@
-🛠️ Dynamic Workflow Management System in Payload CMS
+## 🛠️ Dynamic Workflow Management System in Payload CMS
 This project implements a fully dynamic, reusable, and role-based workflow engine inside Payload CMS. It allows administrators to create multi-step approval workflows that can be attached to any collection (e.g., blogs, contracts, products) through the admin panel.
 
-🚀 Features
+## 🚀 Features
 ✅ Dynamic Workflow Builder: Create multi-step workflows directly in the admin panel.
 ✅ Role-Based Access: Define specific roles like approve, review, sign-off, and comment-only.
 ✅ Conditional Branching: Route workflows differently based on approval or rejection outcomes.
@@ -11,8 +11,10 @@ This project implements a fully dynamic, reusable, and role-based workflow engin
 ✅ REST API Support: Integrate the workflow engine with external systems.
 ✅ Custom Admin Dashboard: Get a high-level overview of workflow analytics.
 
-🧱 Architecture Overview
-📁 collections/
+## 🧱 Architecture Overview
+---
+
+## 📁 collections/
 blog.ts – A sample collection demonstrating how to integrate workflow support.
 
 workflows.ts – The collection for defining workflow templates (multi-step definitions).
@@ -23,7 +25,7 @@ workflow-logs.ts – Read-only, immutable audit logs for every action taken.
 
 users.ts – Manages users and their assigned roles for access control.
 
-📁 components/
+## 📁 components/
 WorkflowSidebar.tsx – The custom React component injected into the Admin UI for live step tracking and user actions.
 
 📁 workflow/
@@ -34,7 +36,7 @@ workflowRoutes.ts – Custom REST API endpoints for external integrations.
 
 analytics.ts – The admin route for the workflow status analytics dashboard.
 
-📦 Installation & Setup
+## 📦 Installation & Setup
 Clone this repository:
 
 git clone [https://github.com/riteshh-thakur/Dynamic-Workflow.git](https://github.com/riteshh-thakur/Dynamic-Workflow.git)
@@ -77,7 +79,7 @@ Example User document:
 
 You can create users from the admin UI or insert them directly via MongoDB.
 
-🧪 How It Works (Flow)
+## 🧪 How It Works (Flow)
 An Admin creates a workflow in the Workflows collection.
 
 An Editor creates a new blog post and attaches the desired workflow.
@@ -90,7 +92,7 @@ In the Admin UI, the WorkflowSidebar shows the current step and available action
 
 When the assigned user takes an action, the workflowInstance is updated, a workflowLog is created, and the workflow transitions to the next step.
 
-📡 REST API Endpoints
+## 📡 REST API Endpoints
 🔁 Trigger Workflow
 Manually trigger or advance a workflow step.
 POST /api/workflows/trigger
@@ -105,15 +107,15 @@ Request Body:
   "comment": "Reviewed by editor"
 }
 
-📥 Fetch Workflow Status
+## 📥 Fetch Workflow Status
 Fetch the current workflow state for a specific document.
 GET /api/workflows/status/:collection/:docId
 
-📈 Check SLAs
+## 📈 Check SLAs
 Check all running workflows for overdue steps based on their defined SLA.
 GET /api/workflows/check-slas
 
-📊 Dashboard & Analytics
+## 📊 Dashboard & Analytics
 Visit /workflow-dashboard (admin-only) to see:
 
 Counts of in-progress, approved, and rejected workflows.
@@ -124,7 +126,7 @@ A feed of recent workflow actions.
 
 Average completion time for workflows.
 
-🧩 Extensibility
+## 🧩 Extensibility
 This engine is designed to be reusable across any Payload collection. To add workflow support to another collection (e.g., products):
 
 Add a workflow relationship field in product.ts.
@@ -133,7 +135,7 @@ Import and inject the WorkflowSidebar component in the product collection's admi
 
 That's it—the engine works dynamically!
 
-🎁 Bonus Features
+## 🎁 Bonus Features
 SLA Escalation: Logic to trigger new logs or notifications when a step is overdue.
 
 JSON Condition Logic: Use json-logic in steps for complex conditional routing.
@@ -144,6 +146,6 @@ Comment-Only Steps: Allow users to add feedback without changing the workflow st
 
 Visible Feedback: Approver comments are visible directly in the Admin UI sidebar.
 
-🧠 Credits
+## 🧠 Credits
 This task was created by Ritesh Thakur as a submission for the Payload CMS Workflow Challenge.
 
